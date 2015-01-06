@@ -1,0 +1,35 @@
+#!perl
+
+sub func1 {
+    func2(1, [2, 3], {4=>5});
+}
+
+sub func2 {
+    func3();
+}
+
+sub func3 {
+    func4(1, ["some", "arguments", {}]);
+}
+
+sub func4 {
+    my $n = int(rand()*4);
+    if ($n == 0) {
+        die "This is a die message without newline ending";
+    } elsif ($n == 1) {
+        die "This is a die message with newline ending\n";
+    } elsif ($n == 2) {
+        die [{}, "str", undef, [1,2,3]];
+    } elsif ($n == 3) {
+        die;
+    }
+}
+
+func1();
+
+#ABSTRACT: This script dies
+
+=head1 DESCRIPTION
+
+Sometimes it will die with a reference, sometimes it will just die(), sometimes
+it will die with a string message with/without a newline-ending.

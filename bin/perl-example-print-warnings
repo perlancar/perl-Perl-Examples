@@ -1,0 +1,30 @@
+#!perl
+
+sub func1 {
+    func2(1, [2, 3], {4=>5});
+}
+
+sub func2 {
+    func3();
+}
+
+sub func3 {
+    func4();
+    func4(1, ["some", "arguments", {}]);
+    func4(undef, qr/Regexp/, []);
+}
+
+sub func4 {
+    if (rand() < 0.5) {
+        warn "This is a warning";
+    } else {
+        warn "This is another warning";
+    }
+}
+
+func1();
+
+#ABSTRACT: This script prints some warnings
+
+=head1 DESCRIPTION
+
