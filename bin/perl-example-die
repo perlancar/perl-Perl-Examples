@@ -28,6 +28,7 @@ sub func4 {
 func1();
 
 #ABSTRACT: This script dies
+#PODNAME:
 
 =head1 DESCRIPTION
 

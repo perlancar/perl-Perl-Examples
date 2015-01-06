@@ -25,6 +25,7 @@ sub func4 {
 func1();
 
 #ABSTRACT: This script prints some warnings
+#PODNAME:
 
 =head1 DESCRIPTION
 
