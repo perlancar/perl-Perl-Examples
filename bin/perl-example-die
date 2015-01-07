@@ -1,5 +1,9 @@
 #!perl
 
+use 5.010;
+use strict;
+use warnings;
+
 sub func1 {
     func2(1, [2, 3], {4=>5});
 }
@@ -13,14 +17,31 @@ sub func3 {
 }
 
 sub func4 {
+    use experimental 'smartmatch';
+
     my $n = int(rand()*4);
-    if ($n == 0) {
+    my @ways = qw(ref strnonl strnl str empty);
+
+    my $str = "Default die message";
+    my $way = shift @ARGV // $ways[rand @ways];
+    if ($way =~ /^(str):(.*)/) {
+        $way = $1;
+        $str = $2;
+    }
+    unless ($way ~~ @ways) {
+        die "Unknown way '$way', please choose from: " .
+            join(", ", @ways) . "\n";
+    }
+
+    if ($way eq 'strnonl') {
         die "This is a die message without newline ending";
-    } elsif ($n == 1) {
+    } elsif ($way eq 'strnl') {
         die "This is a die message with newline ending\n";
-    } elsif ($n == 2) {
+    } elsif ($way eq 'str') {
+        die $str;
+    } elsif ($way eq 'ref') {
         die [{}, "str", undef, [1,2,3]];
-    } elsif ($n == 3) {
+    } elsif ($way eq 'empty') {
         die;
     }
 }
@@ -32,5 +53,32 @@ func1();
 
 =head1 DESCRIPTION
 
-Sometimes it will die with a reference, sometimes it will just die(), sometimes
-it will die with a string message with/without a newline-ending.
+This script offers several ways of die-ing, which you can choose from
+command-line argument:
+
+=over
+
+=item * ref
+
+Die with a message of reference (an arrayref).
+
+=item * empty
+
+die() without any message.
+
+=item * strnonl
+
+Die with a default string message without a newline-ending.
+
+=item * strnl
+
+Die with a default string message with a newline-ending.
+
+=item * str:STR
+
+Die with a string specified in the argument (STR). You can test, e.g. Unicode
+characters.
+
+=back
+
+If unspecified, will pick a random way.
