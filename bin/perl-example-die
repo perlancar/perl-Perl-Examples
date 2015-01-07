@@ -20,28 +20,28 @@ sub func4 {
     use experimental 'smartmatch';
 
     my $n = int(rand()*4);
-    my @ways = qw(ref strnonl strnl str empty);
+    my @msgtypes = qw(ref strnonl strnl str empty);
 
     my $str = "Default die message";
-    my $way = shift @ARGV // $ways[rand @ways];
-    if ($way =~ /^(str):(.*)/) {
-        $way = $1;
+    my $msgtype = shift @ARGV // $msgtypes[rand @msgtypes];
+    if ($msgtype =~ /^(str):(.*)/) {
+        $msgtype = $1;
         $str = $2;
     }
-    unless ($way ~~ @ways) {
-        die "Unknown way '$way', please choose from: " .
-            join(", ", @ways) . "\n";
+    unless ($msgtype ~~ @msgtypes) {
+        die "Unknown message type '$msgtype', please choose from: " .
+            join(", ", @msgtypes) . "\n";
     }
 
-    if ($way eq 'strnonl') {
+    if ($msgtype eq 'strnonl') {
         die "This is a die message without newline ending";
-    } elsif ($way eq 'strnl') {
+    } elsif ($msgtype eq 'strnl') {
         die "This is a die message with newline ending\n";
-    } elsif ($way eq 'str') {
+    } elsif ($msgtype eq 'str') {
         die $str;
-    } elsif ($way eq 'ref') {
+    } elsif ($msgtype eq 'ref') {
         die [{}, "str", undef, [1,2,3]];
-    } elsif ($way eq 'empty') {
+    } elsif ($msgtype eq 'empty') {
         die;
     }
 }
