@@ -4,6 +4,16 @@ use 5.010;
 use strict;
 use warnings;
 
+use Getopt::Long;
+
+# TODO: allow choosing stack trace depth
+# TODO: allow choosing to die inside eval
+
+my %Opts;
+GetOptions(
+    'msgtype=s' => \$Opts{msgtype},
+);
+
 sub func1 {
     func2(1, [2, 3], {4=>5});
 }
@@ -19,11 +29,10 @@ sub func3 {
 sub func4 {
     use experimental 'smartmatch';
 
-    my $n = int(rand()*4);
     my @msgtypes = qw(ref strnonl strnl str empty);
 
     my $str = "Default die message";
-    my $msgtype = shift @ARGV // $msgtypes[rand @msgtypes];
+    my $msgtype = $Opts{msgtype} // $msgtypes[rand @msgtypes];
     if ($msgtype =~ /^(str):(.*)/) {
         $msgtype = $1;
         $str = $2;
@@ -48,13 +57,29 @@ sub func4 {
 
 func1();
 
-#ABSTRACT: This script dies
+#ABSTRACT: Several ways of die-ing
 #PODNAME:
+
+=head1 OPTIONS
+
+ # random ways of die-ing
+ % perl-example-die
+
+ # choose a message string
+ % perl-example-die --msgtype "str:foo bar"
+
 
 =head1 DESCRIPTION
 
-This script offers several ways of die-ing, which you can choose from
-command-line argument:
+This script offers several ways of die-ing. You can specify the various aspects
+via command-line options.
+
+
+=head1 OPTIONS
+
+=head2 --msgtype=S
+
+Message type.
 
 =over
 
