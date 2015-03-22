@@ -1,0 +1,9 @@
+#!perl
+
+# this script performs an endless loop using while. it should use up CPU time
+# (busy loop).
+
+1 while 1;
+
+
+

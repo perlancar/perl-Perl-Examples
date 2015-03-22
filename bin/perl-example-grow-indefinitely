@@ -1,0 +1,7 @@
+#!perl
+
+# this script will grow an array (and thus process size) indefinitely. be
+# careful when running this script, it will either be stopped by the OS and/or
+# make your system thrash/crawl in the process.
+
+push @a, 1 while 1;
