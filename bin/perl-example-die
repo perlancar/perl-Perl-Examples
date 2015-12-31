@@ -32,8 +32,6 @@ sub func3 {
 }
 
 sub func4 {
-    use experimental 'smartmatch';
-
     my @msgtypes = qw(ref strnonl strnl str empty);
 
     my $str = "Default die message";
@@ -43,7 +41,7 @@ sub func4 {
         $msgtype = $1;
         $str = $2;
     }
-    unless ($msgtype ~~ @msgtypes) {
+    unless (grep {$_ eq $msgtype} @msgtypes) {
         die "Unknown message type '$msgtype', please choose from: " .
             join(", ", @msgtypes) . "\n";
     }
