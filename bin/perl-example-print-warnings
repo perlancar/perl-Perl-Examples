@@ -1,5 +1,8 @@
 #!perl
 
+# DATE
+# VERSION
+
 sub func1 {
     func2(1, [2, 3], {4=>5});
 }

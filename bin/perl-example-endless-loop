@@ -1,9 +1,12 @@
 #!perl
 
+# DATE
+# VERSION
+
 # this script performs an endless loop using while. it should use up CPU time
 # (busy loop).
 
 1 while 1;
 
-
-
+#ABSTRACT: Performs endless loop
+#PODNAME:
