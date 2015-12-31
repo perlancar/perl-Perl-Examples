@@ -20,7 +20,7 @@ GetOptions(
 );
 
 sub func1 {
-    func2(1, [2, 3], {4=>5});
+    func2(1, [2, 3], {4=>5}, sub{}, qr/regex/i);
 }
 
 sub func2 {
