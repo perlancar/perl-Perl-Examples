@@ -10,28 +10,22 @@ package Perl::Examples;
 
 B<EARLY RELEASE, MORE EXAMPLES TO COME, CONTRIBUTIONS WELCOME.>
 
-This distribution, as the name suggests, contains a collection of various
-examples of Perl modules/scripts. If you happen to need a script/module that:
+This distribution, as the name suggests, contains a random collection of various
+Perl modules/scripts, mostly for testing. Some examples are:
 
 =over
 
-=item * contains some warnings and errors
+=item * script that generates warning
 
-=item * downloads some stuffs from the Internet using {LWP,HTTP::Tiny,...}
+=item * script that dies
 
-=item * contains an endless loop
+=item * script that contains an endless loop
 
-=item * creates a circular data structure
+=item * script that grows indefinitely
 
-=item * generates some random text
-
-=item * do some busy work for X seconds/minutes
-
-=item * demonstrates some Perl features
-
-=item * and so on
+=item * module that contains POD examples
 
 =back
 
-but don't want to have to write it yourself, then this distribution is for you.
-
+As more examples are added they might get reorganized (renamed, spun off to
+another dist, etc).
