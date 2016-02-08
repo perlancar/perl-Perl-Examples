@@ -36,3 +36,21 @@ ftp scheme: L<ftp://ftp.example.com/>
 mailto scheme: L<mailto:example@example.com>
 
 Some custom scheme: L<foo://bar>
+
+=head2 POD link in head2: L<Perl::Examples>
+
+=head2 URL link in head2: L<http://www.example.com/head2.html>
+
+=head2 Links in bullet points
+
+=over
+
+=item * L<Perl::Examples>
+
+=item * L<http://www.example.com/bullet.html>
+
+=back
+
+=head2 Not links
+
+ L<link in verbatim is not link|Perl::Example>
