@@ -17,7 +17,7 @@ Link to module with text: L<The Perl-Examples main module|Perl::Examples>
 
 Link to module with text + section: L<The description of Perl-Examples main module|Perl::Examples/"DESCRIPTION">
 
-Link this page with text + section: L<A collection of URL links/"URL links">
+Link this page with text + section: L<A collection of URL links|/"URL links">
 
 Link to script: L<perl-example-die>
 
