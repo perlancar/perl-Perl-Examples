@@ -1,5 +1,12 @@
 Revision history for Perl-Examples
 
+0.06    2016-03-21 (PERLANCAR)
+
+        - Add module: Perl::Examples::POD::Text.
+
+        - Fixes.
+
+
 0.05    2016-02-08 (PERLANCAR)
 
 	- Add examples of links in head2 & bullet points.
