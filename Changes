@@ -3,7 +3,7 @@
 	- No functional changes.
 
         - Convert to x.yyy versioning. Ref:
-          https://perlancar.wordpress.com/2016/05/19/using-monotoning-versioning-in-perl/
+          https://perlancar.wordpress.com/2018/09/10/should-i-choose-x-yy-or-x-yyy-versioning-scheme-for-my-perl-module/
 
 
 0.08    2018-09-10 (PERLANCAR)
