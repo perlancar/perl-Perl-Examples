@@ -1,3 +1,8 @@
+0.094   2018-11-29 (PERLANCAR)
+
+	- Try L</Chapter/Subchapter> syntax.
+
+
 0.093   2018-11-29 (PERLANCAR)
 
 	- Add example POD: Perl::Examples::POD::Link::AmbiguousSection.
