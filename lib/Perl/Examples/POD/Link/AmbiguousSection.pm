@@ -13,6 +13,18 @@ heading). Note that the L</CHAPTER 1> level-1 heading as well as L</CHAPTER 2>
 level-1 heading both have this subheading. There is currently no way we can link
 to a specific level-1 heading's subheading.
 
+These don't work (yet).
+
+=over
+
+=item * L</"CHAPTER 1"/"Subchapter 1">
+
+=item * L</"CHAPTER 1/Subchapter 1">
+
+=item * L</CHAPTER 1/Subchapter 1>
+
+=back
+
 L<This link|/"Item 1"> links to section named "Item 1" (an item). Note that both
 chapters also have this item.
 
